@@ -3,7 +3,7 @@ Stack-based AWS Lambda Ackermann function implementation that reads from and wri
 
 ## Set up Lambda Function 
 
-1. In AWS, create an new Lambda function, setting runtime to Java. Assign a basic execution role that based on *AWSLambdaBasicExecutionRole* and *AmazonS3FullAccess* permissions. Edit the *Runtime Settings*and set *Handler* to `de.zenbit.aws.AckermannS3Handler`. 
+1. In AWS, create an new Lambda function, setting runtime to Java. Assign a basic execution role based on *AWSLambdaBasicExecutionRole* and *AmazonS3FullAccess* permissions. Edit the *Runtime Settings*and set *Handler* to `de.zenbit.aws.AckermannS3Handler`. 
 
 2. Clone repository and build the deployment artifact (JAR) using *Maven*.
 
@@ -12,7 +12,7 @@ cd ./aws-lambda-ackermann-s3
 mvn clean package
 ```
 
-3. Deploy the JAR file to AWS Lambda using the AWS CLI. Of course, may also deploy the JAR file using the Lambda console In the Code Source pane, choose Upload from and then .zip file.
+3. Deploy the JAR file to AWS Lambda using the AWS CLI. Of course, you may also deploy the JAR file using the Lambda console In the Code Source pane, choose Upload from and then .zip file.
 
 ```bash
 cd ./target
@@ -40,9 +40,9 @@ aws s3api create-bucket --bucket YOUR-BUCKET-NAME --region eu-central-1 --create
     * Prefix **input/**
     * Suffix **.json**
 
-::: warning
-Be carefeful setting up the trigger to avoid recursive invocations between S3 and Lambda.
-:::
+> **WARNING!**
+> Be carefeful setting up the trigger to avoid recursive invocations between S3 and Lambda.
+>
 
 ## Final Test
 
