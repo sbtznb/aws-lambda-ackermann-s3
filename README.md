@@ -37,6 +37,8 @@ aws s3api create-bucket --bucket YOUR-BUCKET-NAME --region eu-central-1 --create
 
 2. Add a trigger to your Lambda function
     * Type **S3 trigger**
+    * Choose your bucket
+    * Event type **All object create events**
     * Prefix **input/**
     * Suffix **.json**
 
